@@ -33,7 +33,7 @@ class DealzController < ApplicationController
     doc = Nokogiri::HTML(open(uri))
     xml = Builder::XmlMarkup.new(:indent=>2)
     xml.instruct!
-    puts doc
+  #  puts doc
 
     rows = doc.xpath("//table[@class='offer']/tr")
     name=""
