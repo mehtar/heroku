@@ -1,0 +1,10 @@
+dealoz
+http://www.dealoz.com/prod2.pl?cat=book&op=buy&op2=buy&lang=en-us&search_country=us&shipto=us&cur=usd&zip=&nw=y&class=&pqcs=&quantity=&shipping_type=&sort=&catby=book.keyword&query=B002HOQ91G&asin=B002HOQ91G&ean=&upc=&mpn=&mfr=
+
+
+
+code
+http://www.dealoz.com/prod2.pl?cat=book&op=buy&op2=buy&lang=en-us&search_country=us&shipto=us&cur=usd&zip=&nw=y&class=&pqcs=&quantity=&shipping_type=&sort=&catby=book.keyword&query=&B002HOQ91Gasin=&ean=B002HOQ91G&upc=&mpn=&mfr=
+
+
+http://dealoz.com/prod2.pl?cat=book&op=buy&op2=buy&lang=en-us&search_country=us&shipto=us&cur=usd&zip=&nw=y&class=&pqcs=&quantity=&shipping_type=&sort=&catby=book.keyword&asin=B002HOQ91G&upc=&mpn=&mfr=

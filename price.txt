@@ -1,0 +1,1090 @@
+<html>
+<head>
+    </head>
+
+<link rel="stylesheet" href="/css/jquery/cluetip.css?090324" type="text/css" />
+<script language="javascript" src="/js/jquery/jquery.js?090226"></script>
+<script language="javascript" src="/js/jquery/cluetip.js?090226"></script>
+<script language="javascript">
+<!--
+$(document).ready(function() {
+// jTip theme
+  $('a.jt').cluetip({
+    cluetipClass: 'jtip', 
+    arrows: true, 
+    dropShadow: false,
+    sticky: false,
+    mouseOutClose: true,
+    closePosition: 'title',
+    width:'265px', 
+    closeText: '<img src="/img/jquery/cluetip/cross.gif" alt="close" />'
+
+  });
+});
+function rowFocus(obj) {
+  obj.bgColor =  '#FFFACD'
+} 
+function rowLostFocus(obj,orgClr) {
+  obj.bgColor = orgClr;
+}  
+//-->
+</script>
+
+<style>
+body,td,a,p,h,div,span {font-family:arial,sans-serif; font-size: 13px}
+.notes {font:85% arial;}
+.condition{ padding-left:10px;padding-right:10px; }
+.bestpricelabel { font-size:11px;font-weight:bold;color:#DC143C;}
+.price_button { font-size:16px;font-weight:bold;color:#006400;}
+input,select {margin-top:2px;margin-bottom:2px;margin-left:1px;margin-right:1px;font-family:arial,sans-serif; font-size:13px}
+
+a.lnk:link {color:#003399; text-decoration:none;}
+a.lnk:visited {color:#003399; text-decoration:none;}
+a.lnk:active {color:#cc6600; text-decoration:underline;}
+a.lnk:hover {color:#cc6600; text-decoration:underline;}
+a {cursor:pointer;}
+
+a.store_link:link {color:#000000; text-decoration:none;}
+a.store_link:visited {color:#003399; text-decoration:none;}
+a.store_link:active {color:#cc6600; text-decoration:none;;}
+a.store_link:hover {color:#FF9933; text-decoration:none;}
+a#store_link_jquery:link {color:#000000; text-decoration:none;}
+a#store_link_jquery:visited {color:#003399; text-decoration:none;}
+a#store_link_jquery:active {color:#cc6600; text-decoration:none;;}
+a#store_link_jquery:hover {color:#FF9933; text-decoration:none;}
+
+.offer .topleft {background-image: url(/img/shop/offer_top_left.gif);background-repeat: no-repeat;height: 30px;width:18px;}
+.offer .topmiddle {font-weight: bold;background-image: url(/img/shop/offer_top_middle.gif);height: 30px;line-height: 18px;padding-left: 5px;padding-right: 5px;}
+.offer .topmiddleon {font-weight: bold;background-image: url(/img/shop/offer_top_middle.gif);height: 30px;line-height: 18px;padding-left: 5px;padding-right: 5px;}
+.offer .topright {background-image: url(/img/shop/offer_top_right.gif);background-repeat: no-repeat;height: 30px;width:18px;}
+.offer .middleleft {background-image: url(/img/shop/offer_middle_left.gif);width: 18px;}
+.offer .middleright {background-image: url(/img/shop/offer_middle_right.gif);width: 18px;} 
+.offer .bottomleft {background-image: url(/img/shop/offer_bottom_left.gif);background-repeat: no-repeat;height: 20px;width:18px;} 
+.offer .bottommiddle {background-image: url(/img/shop/offer_bottom_middle.gif);height: 20px;}
+.offer .bottomright {background-image: url(/img/shop/offer_bottom_right.gif);background-repeat: no-repeat;height: 20px;width:18px;}
+.offer .unit {border-right-style: solid;border-right-width: 1px;border-right-color: #ffffff;padding: 3px;}
+.offer .endlineunit {padding: 5px;}
+.offer .topmiddle a {color: #0000CD;}
+.offer .topmiddleon a {color: #D2691E;}
+
+.subtabs { margin-left: 10px;margin-bottom: -2px;position: relative;z-index: 1;}
+.subtabs a:link, .subtabs a:visited, .subtabs a:active {font-size: 12px;color: #000000;text-decoration:none;}
+.subtabs a:hover {color: #D2691E;text-decoration:underline;}
+.subtabs .leftoff {background-image: url(/img/shop/sub_tab_left_off.gif);background-repeat: no-repeat;height: 25px;padding-left: 20px;padding-right: 5px;}
+.subtabs .lefton {background-image: url(/img/shop/sub_tab_left_on.gif);background-repeat: no-repeat;height: 25px;padding-left: 20px;padding-right: 5px;}
+.subtabs .middleoff {background-image: url(/img/shop/sub_tab_middle_off.gif);background-repeat: no-repeat;height: 25px;padding-left: 20px;padding-right: 5px;}
+.subtabs .middleon {background-image: url(/img/shop/sub_tab_middle_on.gif);background-repeat: no-repeat;height: 25px;padding-left: 20px;padding-right: 5px;}
+.subtabs .middleofflefton {background-image: url(/img/shop/sub_tab_middle_off_left_on.gif);background-repeat: no-repeat;height: 25px;padding-left: 20px;padding-right: 5px;}
+.subtabs .rightoff {background-image: url(/img/shop/sub_tab_right_off.gif);background-repeat: no-repeat;height: 25px;width:7px;}
+.subtabs .righton {background-image: url(/img/shop/sub_tab_right_on.gif);background-repeat: no-repeat;height: 25px;width:7px;}
+.subtabs .lefton a:link, .subtabs .lefton a:visited, .subtabs .lefton a:active, .subtabs .lefton a:hover, .subtabs .middleon a:link, .subtabs .middleon a:visited, .subtabs .middleon a:active, .subtabs .middleon a:hover {color: #D2691E;font-weight:bold;text-decoration:none;}
+
+#feature .bigprice .list a:link {font-size:16px;font-weight:bold;color:blue; text-decoration:none;}
+#feature .bigprice .list a:hover {font-size:16px;font-weight:bold;color:blue; text-decoration:none;}
+#feature .bigprice .lsit a:visited {font-size:16px;font-weight:bold;color:blue; text-decoration:none;}
+#feature .bigprice .buy a:link {font-size:16px;font-weight:bold;color:green; text-decoration:none;}
+#feature .bigprice .buy a:hover {font-size:16px;font-weight:bold;color:green; text-decoration:none;}
+#feature .bigprice .buy a:visited {font-size:16px;font-weight:bold;color:green; text-decoration:none;}
+#feature .sn {color: green;}
+#feature a:link { text-decoration:none; color:#003399;}
+#feature a:hover { text-decoration:underline; color:#cc6600;}
+#featured_title { background-color:rgb(161, 191, 217); height:25px; line-height:25px; color: black;}
+#feature .jt a:link {color: black;}
+#feature .jt a:hover {color:#FF9933; text-decoration:none; }
+#feature .jt a:visited {color:black; text-decoration:none; }
+</style>
+
+<body>    
+
+
+
+
+<table border=0 cellpadding=0 cellspacing=0 width="100%" style="padding-top:0px;">
+<tr><td>
+    
+        
+<div style="float:right;">
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td>
+<div style="border:1px solid #000000;">
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td heiht=35>
+<b>&nbsp;Price at a glance:</b>
+           
+                   <b>&nbsp;<a style="font-size:1.2em;text-decoration:none;" href="/price.pl?cat=book&op=buy&lang=en-us&search_country=us&cur=usd&class=used&sort=featured&q=mfr%3DKlett%26asin%3D3126754953%26ean%3D9783126754958%26data_id%3D4969458%26list_price%3D5.42&shipping_type=standard&catby=&query=" class="lnk">11 used</a></b>  <font style="font-size:1.1em">from</font> <font style="color:#006400;"><b>$15.00</b></font>&nbsp;
+                 
+                   <b>&nbsp;<a style="font-size:1.2em;text-decoration:none;" href="/price.pl?cat=book&op=buy&lang=en-us&search_country=us&cur=usd&class=rental&sort=featured&q=mfr%3DKlett%26asin%3D3126754953%26ean%3D9783126754958%26data_id%3D4969458%26list_price%3D5.42&shipping_type=standard&catby=&query=" class="lnk">1 rental</a></b>  <font style="font-size:1.1em">from</font> <font style="color:#006400;"><b>$46.05</b></font>&nbsp;
+                 
+</td></tr>
+</table>
+</div>
+</td></tr>
+</table>
+</div>
+
+
+    
+
+    
+
+
+<table border=0 cellpadding=0 cellspacing=0 width="100%">
+    <tr valign=bottom>
+        <td>
+            
+<table border=0 cellspacing=0 cellpadding=0 class="subtabs">
+    <tr height=25>                    <td nowrap class="lefton">
+                <a href="/price.pl?cat=book&op=buy&lang=en-us&search_country=us&cur=usd&sort=featured&q=mfr%3DKlett%26asin%3D3126754953%26ean%3D9783126754958%26data_id%3D4969458%26list_price%3D5.42&shipping_type=standard&quantity=1&catby=&query="><b>All</b></a>
+                    </td>                    <td nowrap class="middleofflefton">
+                <a href="/price.pl?cat=book&op=buy&lang=en-us&search_country=us&cur=usd&class=used&sort=featured&q=mfr%3DKlett%26asin%3D3126754953%26ean%3D9783126754958%26data_id%3D4969458%26list_price%3D5.42&shipping_type=standard&quantity=1&catby=&query="><b>Used</b></a>
+                    </td>                    <td nowrap class="middleoff">
+                <a href="/price.pl?cat=book&op=buy&lang=en-us&search_country=us&cur=usd&class=rental&sort=featured&q=mfr%3DKlett%26asin%3D3126754953%26ean%3D9783126754958%26data_id%3D4969458%26list_price%3D5.42&shipping_type=standard&quantity=1&catby=&query="><b>Rental</b></a>
+                    </td>                <td nowrap class="rightoff">&nbsp;</td>    </tr>
+</table>
+
+        </td>
+    
+    
+
+    <td align=right nowrap><style>
+#bc { display: none; font-size:10px;}
+#bf a:hover { text-decoration: underline;}
+#bf a {text-decoration: none;}
+#bf { font-size:10px;}
+</style>
+<script language="javascript">
+<!----
+function show() {
+ var f = document.shippingform;
+    f.prev.value = "";
+    f.action = "/price.pl";
+    f.submit();
+    return false;
+}
+//---->
+</script>
+
+
+</script>
+<table border=0><tr valign=middle ><nobr/>
+<form name="shippingform">
+<input type=hidden name=cat value=book>
+<input type=hidden name=lang value=en-us>
+<input type=hidden name=op value="buy">
+<input type=hidden name=search_country value=us>
+<input type=hidden name=shipto value=us>
+<input type=hidden name=cur value=usd>
+<input type=hidden name=nw  value=y>
+<input type=hidden name=ean value=9783126754958>
+<input type=hidden name=asin value=3126754953>
+<input type=hidden name=mfr value=Klett>
+<input type=hidden name="prev" value="">
+<input type=hidden name="limit" value="100">
+<input type=hidden name="sort" value="featured">
+<input type=hidden name="catby" value="">
+<input type=hidden name="query" value="">
+<td valign="bottom">
+  <select name="quantity" onchange="show();" style="font-size:11px;">    <option  value="1"   selected >1</option>    <option  value="2"   >2</option>    <option  value="3"   >3</option>    <option  value="4"   >4</option>    <option  value="5"   >5</option>    <option  value="6"   >6</option>    <option  value="7"   >7</option>    <option  value="8"   >8</option>    <option  value="9"   >9</option>    <option  value="10"   >10</option>    <option  value="11"   >11</option>    <option  value="12"   >12</option>    <option  value="13"   >13</option>    <option  value="14"   >14</option>    <option  value="15"   >15</option>    <option  value="16"   >16</option>    <option  value="17"   >17</option>    <option  value="18"   >18</option>    <option  value="19"   >19</option>    <option  value="20"   >20</option>    <option  value="21"   >21</option>    <option  value="22"   >22</option>    <option  value="23"   >23</option>    <option  value="24"   >24</option>    <option  value="25"   >25</option>    <option  value="26"   >26</option>    <option  value="27"   >27</option>    <option  value="28"   >28</option>    <option  value="29"   >29</option>    <option  value="30"   >30</option>    <option  value="31"   >31</option>    <option  value="32"   >32</option>    <option  value="33"   >33</option>    <option  value="34"   >34</option>    <option  value="35"   >35</option>    <option  value="36"   >36</option>    <option  value="37"   >37</option>    <option  value="38"   >38</option>    <option  value="39"   >39</option>    <option  value="40"   >40</option>    <option  value="41"   >41</option>    <option  value="42"   >42</option>    <option  value="43"   >43</option>    <option  value="44"   >44</option>    <option  value="45"   >45</option>    <option  value="46"   >46</option>    <option  value="47"   >47</option>    <option  value="48"   >48</option>    <option  value="49"   >49</option>    <option  value="50"   >50</option>    <option  value="51"   >51</option>    <option  value="52"   >52</option>    <option  value="53"   >53</option>    <option  value="54"   >54</option>    <option  value="55"   >55</option>    <option  value="56"   >56</option>    <option  value="57"   >57</option>    <option  value="58"   >58</option>    <option  value="59"   >59</option>    <option  value="60"   >60</option>    <option  value="61"   >61</option>    <option  value="62"   >62</option>    <option  value="63"   >63</option>    <option  value="64"   >64</option>    <option  value="65"   >65</option>    <option  value="66"   >66</option>    <option  value="67"   >67</option>    <option  value="68"   >68</option>    <option  value="69"   >69</option>    <option  value="70"   >70</option>    <option  value="71"   >71</option>    <option  value="72"   >72</option>    <option  value="73"   >73</option>    <option  value="74"   >74</option>    <option  value="75"   >75</option>    <option  value="76"   >76</option>    <option  value="77"   >77</option>    <option  value="78"   >78</option>    <option  value="79"   >79</option>    <option  value="80"   >80</option>    <option  value="81"   >81</option>    <option  value="82"   >82</option>    <option  value="83"   >83</option>    <option  value="84"   >84</option>    <option  value="85"   >85</option>    <option  value="86"   >86</option>    <option  value="87"   >87</option>    <option  value="88"   >88</option>    <option  value="89"   >89</option>    <option  value="90"   >90</option>    <option  value="91"   >91</option>    <option  value="92"   >92</option>    <option  value="93"   >93</option>    <option  value="94"   >94</option>    <option  value="95"   >95</option>    <option  value="96"   >96</option>    <option  value="97"   >97</option>    <option  value="98"   >98</option>    <option  value="99"   >99</option>  </select>
+</td>
+<td style="font-size:11px; font-weight:bold;"">copies</td>
+<td>&nbsp;</td>
+<td style="font-size:11px;  font-weight:bold">Speed</td>
+
+<td style="font-size:11px;"><nobr/>    <input name="shipping_type" value="standard" checked type="radio" onclick="show();">Standard&nbsp;    <input name="shipping_type" value="expedited"  type="radio" onclick="show();">Expedited&nbsp;    <input name="shipping_type" value="1day"  type="radio" onclick="show();">1-Day&nbsp;</td>
+</form>
+</tr></table>
+
+ 
+</td>
+    <td width=10>&nbsp;</td>
+    </tr>
+</table>
+
+    
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="offer">
+
+  <tr valign=middle align=center height=30>
+        <td class="topleft" nowrap>&nbsp;</td>
+	<td class="topmiddle"  width=13% nowrap>Sort by&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.dealoz.com/price.pl?cat=book&data_id=4969458&op=buy&class=all&sort=localized_price:asc">Price</a></td>
+        <td class="topmiddle" width=14%>Condition</td>
+        <td class="topmiddle" nowrap width=5%><a href="http://www.dealoz.com/price.pl?cat=book&data_id=4969458&op=buy&class=all&sort=localized_coupon:asc">Coupon</a></td>
+        <td class="topmiddle" width=11% nowrap><a href="http://www.dealoz.com/price.pl?cat=book&data_id=4969458&op=buy&class=all&sort=total_cost:asc">Total cost</a></td>
+	<td class="topmiddle"  nowrap><a href="http://www.dealoz.com/price.pl?cat=book&data_id=4969458&op=buy&class=all&sort=store_name:asc">Store</a></td>
+    
+        <td class="topmiddle" nowrap><a href="http://www.dealoz.com/price.pl?cat=book&data_id=4969458&op=buy&class=all&sort=localized_shipping:asc">Shipping </a></td>
+
+        <td class="topright" nowrap>&nbsp;</td>
+</tr>
+
+
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=1&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=1&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        7 available
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=1&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.99 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.36</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+        
+        <table border=0 cellspacing="0" cellpadding="0">
+        <tr>
+         <td><a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=1&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=83&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%253A%252F%252Fwww.amazon.com%252Fexec%252Fobidos%252Fredirect%253Ftag%253Ddealoz_mkt_us_book_UTM_-20%2526path%253Dtg%252Fstores%252Foffering%252Flist%252F-%252F3126754953%252Fused%26position%3D1%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>Amazon Marketplace</b>" id="store_link_jquery">
+               <img src="/img/dealoz.com/store_logo/83.gif" border="0" alt="Amazon Marketplace" title="Amazon Marketplace">
+        </a></td>
+         <td>&nbsp;<img src="/img/shop/en-us/featured.gif" alt="Featured Store" align=top border=0><br><img src="/img/shop/45star.gif" alt="4.47" border=0>        </a></td>
+         </tr>
+        </table>
+
+
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.99  
+        &nbsp;<span class=notes><nobr>Std. mail: 4-14</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=2&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=2&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=2&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.95 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.32</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+        
+        <table border=0 cellspacing="0" cellpadding="0">
+        <tr>
+         <td><a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=2&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=128&shipto=us&cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%253A%252F%252Fwww.valorebooks.com%252Faffiliate%252Fbuy%252FsiteID%253Dg6m9bU%252FISBN%253D9783126754958%253Futm_medium%253Dreferral%2526utm_campaign%253Dcampusi%2526utm_source%253Dcampusi%2526buy%253D2%26position%3D2%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>ValoreBooks</b>" id="store_link_jquery">
+               <img src="/img/dealoz.com/store_logo/128.gif" border="0" alt="ValoreBooks" title="ValoreBooks">
+        </a></td>
+         <td>&nbsp;<img src="/img/shop/en-us/featured.gif" alt="Featured Store" align=top border=0><br><img src="/img/shop/30star.gif" alt="2.95" border=0>        </a></td>
+         </tr>
+        </table>
+
+
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.95  
+        &nbsp;<span class=notes><nobr>Media Mail: 4-14</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=3&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=3&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<nobr><div class="condition"><b>Used</b></div></nobr><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=3&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.99 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.36</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+        
+        <table border=0 cellspacing="0" cellpadding="0">
+        <tr>
+         <td><a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=3&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=314&shipto=us&cat_id=10&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%253A%252F%252Fclickserve.cc-dt.com%252Flink%252Ftplclick%253Flid%253D41000000024827430%2526pubid%253D21000000000010538%2526redirect%253Dhttp%25253A%25252F%25252Fwww.textbooks.com%25252FBooksDescription.php%25253FBKN%25253D818501%252526SBC%25253DK6E%26position%3D3%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>Textbooks.com</b>" id="store_link_jquery">
+               <img src="/img/dealoz.com/store_logo/314.gif" border="0" alt="Textbooks.com" title="Textbooks.com">
+        </a></td>
+         <td>&nbsp;<img src="/img/shop/en-us/featured.gif" alt="Featured Store" align=top border=0><br><img src="/img/shop/40star.gif" alt="3.93" border=0>        </a></td>
+         </tr>
+        </table>
+
+
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.99  
+        &nbsp;<span class=notes><nobr></nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+<tr valign=top bgcolor=#B0C4DE height=5>
+        <td class="middleleft"></td>
+        <td colspan="6"></td>
+        <td class="middleright"></td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=239&url=http%3A%2F%2Fwww.powells.com%2Fpartner%2F23958%2Fbiblio%2F9783126754958%3Fcampaign%3D_CI_SID_&position=4&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=15.00">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=239&url=http%3A%2F%2Fwww.powells.com%2Fpartner%2F23958%2Fbiblio%2F9783126754958%3Fcampaign%3D_CI_SID_&position=4&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=15.00" class="price_button" title="" >$15.00</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<nobr><div class="condition"><b>Used</b></div></nobr><font  style="font-size:11px;padding-left:10px;">
+        
+        1 to 3 days
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=239&url=http%3A%2F%2Fwww.powells.com%2Fpartner%2F23958%2Fbiblio%2F9783126754958%3Fcampaign%3D_CI_SID_&position=4&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=15.00"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.98 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$18.98</font>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/shop/best_deal.gif" border="0"><br><span class="bestpricelabel" >Best used</span>             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=239&url=http%3A%2F%2Fwww.powells.com%2Fpartner%2F23958%2Fbiblio%2F9783126754958%3Fcampaign%3D_CI_SID_&position=4&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=15.00" rel="/store_info.pl?cat=book&store_id=8&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=239&url=http%253A%252F%252Fwww.powells.com%252Fpartner%252F23958%252Fbiblio%252F9783126754958%253Fcampaign%253D_CI_SID_%26position%3D4%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D15.00" title="&nbsp;<b>Powells</b>" id="store_link_jquery"><b>Powells</b></a><br><a target=_blank href="/merchant_review.pl?store_id=8" class="lnk" style="font-size:11px;">
+<img src="/img/shop/35star.gif" alt="3.35" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.98  
+        &nbsp;<span class=notes><nobr>ECONOMY MAIL: 4-9</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024810251%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.abebooks.com%252Fservlet%252FSearchResults%253Fisbn%253D3126754953&position=5&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=18.24">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024810251%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.abebooks.com%252Fservlet%252FSearchResults%253Fisbn%253D3126754953&position=5&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=18.24" class="price_button" title="" >$18.24</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        1 available
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+- $1.82<br> <a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=1&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%253A%252F%252Fclickserve.cc-dt.com%252Flink%252Ftplclick%253Flid%253D41000000024810251%2526pubid%253D21000000000010538%2526redirect%253Dhttp%25253A%25252F%25252Fwww.abebooks.com%25252Fservlet%25252FSearchResults%25253Fisbn%25253D3126754953%26position%3D5%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D18.24&couponid=168#168"  title="&nbsp;<b>Abebooks</b>" rel="/coupon.pl?storeid=1&shipto=us&is_short=1&couponid=168#168"><nobr><span class=notes>show coupon</span></nobr></a><br></td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024810251%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.abebooks.com%252Fservlet%252FSearchResults%253Fisbn%253D3126754953&position=5&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=18.24"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.75 shipping </nobr><br>
+              
+               <nobr>-$1.82 coupon =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$20.17</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024810251%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.abebooks.com%252Fservlet%252FSearchResults%253Fisbn%253D3126754953&position=5&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=18.24" rel="/store_info.pl?cat=book&store_id=1&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=235&url=http%253A%252F%252Fclickserve.cc-dt.com%252Flink%252Ftplclick%253Flid%253D41000000024810251%2526pubid%253D21000000000010538%2526redirect%253Dhttp%25253A%25252F%25252Fwww.abebooks.com%25252Fservlet%25252FSearchResults%25253Fisbn%25253D3126754953%26position%3D5%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D18.24" title="&nbsp;<b>Abebooks</b>" id="store_link_jquery"><b>Abebooks</b></a><br><a target=_blank href="/merchant_review.pl?store_id=1" class="lnk" style="font-size:11px;">
+<img src="/img/shop/40star.gif" alt="3.85" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.75  
+        &nbsp;<span class=notes><nobr></nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%3A%2F%2Fclick.linksynergy.com%2Ffs-bin%2Fclick%3Fid%3DXWtbxYmhL3E%26offerid%3D39828.122856000%26type%3D2%26subid%3D0%26tmpid%3D939%26u1%3D_CI_SID_%26RD_PARM1%3Dhttp%25253A%25252F%25252Fwww.alibris.com%25252Fsearch%25252Fsearch.cfm%25253Fqsort%25253Dp%252526qisbn%25253D9783126754958&position=6&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%3A%2F%2Fclick.linksynergy.com%2Ffs-bin%2Fclick%3Fid%3DXWtbxYmhL3E%26offerid%3D39828.122856000%26type%3D2%26subid%3D0%26tmpid%3D939%26u1%3D_CI_SID_%26RD_PARM1%3Dhttp%25253A%25252F%25252Fwww.alibris.com%25252Fsearch%25252Fsearch.cfm%25253Fqsort%25253Dp%252526qisbn%25253D9783126754958&position=6&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+- $1.00<br> <a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=2&shipto=us&cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%253A%252F%252Fclick.linksynergy.com%252Ffs-bin%252Fclick%253Fid%253DXWtbxYmhL3E%2526offerid%253D39828.122856000%2526type%253D2%2526subid%253D0%2526tmpid%253D939%2526u1%253D_CI_SID_%2526RD_PARM1%253Dhttp%2525253A%2525252F%2525252Fwww.alibris.com%2525252Fsearch%2525252Fsearch.cfm%2525253Fqsort%2525253Dp%25252526qisbn%2525253D9783126754958%26position%3D6%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37&couponid=259#259"  title="&nbsp;<b>Alibris</b>" rel="/coupon.pl?storeid=2&shipto=us&is_short=1&couponid=259#259"><nobr><span class=notes>show coupon</span></nobr></a><br></td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%3A%2F%2Fclick.linksynergy.com%2Ffs-bin%2Fclick%3Fid%3DXWtbxYmhL3E%26offerid%3D39828.122856000%26type%3D2%26subid%3D0%26tmpid%3D939%26u1%3D_CI_SID_%26RD_PARM1%3Dhttp%25253A%25252F%25252Fwww.alibris.com%25252Fsearch%25252Fsearch.cfm%25253Fqsort%25253Dp%252526qisbn%25253D9783126754958&position=6&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.99 shipping </nobr><br>
+              
+               <nobr>-$1.00 coupon =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$20.36</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%3A%2F%2Fclick.linksynergy.com%2Ffs-bin%2Fclick%3Fid%3DXWtbxYmhL3E%26offerid%3D39828.122856000%26type%3D2%26subid%3D0%26tmpid%3D939%26u1%3D_CI_SID_%26RD_PARM1%3Dhttp%25253A%25252F%25252Fwww.alibris.com%25252Fsearch%25252Fsearch.cfm%25253Fqsort%25253Dp%252526qisbn%25253D9783126754958&position=6&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=2&shipto=us&cat_id=10&data_id=4969458&sku=10760487822&op=buy&store_cur=usd&feed_id=236&url=http%253A%252F%252Fclick.linksynergy.com%252Ffs-bin%252Fclick%253Fid%253DXWtbxYmhL3E%2526offerid%253D39828.122856000%2526type%253D2%2526subid%253D0%2526tmpid%253D939%2526u1%253D_CI_SID_%2526RD_PARM1%253Dhttp%2525253A%2525252F%2525252Fwww.alibris.com%2525252Fsearch%2525252Fsearch.cfm%2525253Fqsort%2525253Dp%25252526qisbn%2525253D9783126754958%26position%3D6%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>Alibris</b>" id="store_link_jquery"><b>Alibris</b></a><br><a target=_blank href="/merchant_review.pl?store_id=2" class="lnk" style="font-size:11px;">
+<img src="/img/shop/30star.gif" alt="2.98" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.99  
+        &nbsp;<span class=notes><nobr>Standard: 4-14</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%3A%2F%2Fwww.textbookx.com%2Fsingle_product.php%3Fproduct_id%3D403986375%26action%3Dbuy&position=7&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%3A%2F%2Fwww.textbookx.com%2Fsingle_product.php%3Fproduct_id%3D403986375%26action%3Dbuy&position=7&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+<a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=27&shipto=us&cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%253A%252F%252Fwww.textbookx.com%252Fsingle_product.php%253Fproduct_id%253D403986375%2526action%253Dbuy%26position%3D7%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37"><nobr><span class=notes>show coupon</span></nobr></a><br></td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%3A%2F%2Fwww.textbookx.com%2Fsingle_product.php%3Fproduct_id%3D403986375%26action%3Dbuy&position=7&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.96 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.33</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%3A%2F%2Fwww.textbookx.com%2Fsingle_product.php%3Fproduct_id%3D403986375%26action%3Dbuy&position=7&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=27&shipto=us&cat_id=10&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=253&url=http%253A%252F%252Fwww.textbookx.com%252Fsingle_product.php%253Fproduct_id%253D403986375%2526action%253Dbuy%26position%3D7%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>TextbookX</b>" id="store_link_jquery"><b>TextbookX</b></a><br><a target=_blank href="/merchant_review.pl?store_id=27" class="lnk" style="font-size:11px;">
+<img src="/img/shop/35star.gif" alt="3.50" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.96  
+        &nbsp;<span class=notes><nobr>Economy: 1-10</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10470209%3Fsid%3D_CI_SID_%26url%3Dhttp%3A%2F%2Fwww.biblio.com%2Fbooks%2F345602997.html&position=8&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10470209%3Fsid%3D_CI_SID_%26url%3Dhttp%3A%2F%2Fwww.biblio.com%2Fbooks%2F345602997.html&position=8&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" class="price_button" title="" >$17.37</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+<a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=14&shipto=us&cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%253A%252F%252Fwww.jdoqocy.com%252Fclick-536211-10470209%253Fsid%253D_CI_SID_%2526url%253Dhttp%253A%252F%252Fwww.biblio.com%252Fbooks%252F345602997.html%26position%3D8%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37"><nobr><span class=notes>show coupon</span></nobr></a><br></td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10470209%3Fsid%3D_CI_SID_%26url%3Dhttp%3A%2F%2Fwww.biblio.com%2Fbooks%2F345602997.html&position=8&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.97 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.34</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10470209%3Fsid%3D_CI_SID_%26url%3Dhttp%3A%2F%2Fwww.biblio.com%2Fbooks%2F345602997.html&position=8&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" rel="/store_info.pl?cat=book&store_id=14&shipto=us&cat_id=10&data_id=4969458&sku=345602997&op=buy&store_cur=usd&feed_id=245&url=http%253A%252F%252Fwww.jdoqocy.com%252Fclick-536211-10470209%253Fsid%253D_CI_SID_%2526url%253Dhttp%253A%252F%252Fwww.biblio.com%252Fbooks%252F345602997.html%26position%3D8%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.37" title="&nbsp;<b>Biblio.com</b>" id="store_link_jquery"><b>Biblio.com</b></a><br><a target=_blank href="/merchant_review.pl?store_id=14" class="lnk" style="font-size:11px;">
+<img src="/img/shop/40star.gif" alt="4.02" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.97  
+        &nbsp;<span class=notes><nobr>USPS Mail: 7-14</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=100668&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10692263%3FURL%3Dhttp%3A%2F%2Fwww.chegg.com%2Fdetails%2F%3Fisbn%3D9783126754958&position=9&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.99">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=100668&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10692263%3FURL%3Dhttp%3A%2F%2Fwww.chegg.com%2Fdetails%2F%3Fisbn%3D9783126754958&position=9&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.99" class="price_button" title="" >$17.99</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<nobr><div class="condition"><b>Used</b></div></nobr><font  style="font-size:11px;padding-left:10px;">
+        
+        See store
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=100668&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10692263%3FURL%3Dhttp%3A%2F%2Fwww.chegg.com%2Fdetails%2F%3Fisbn%3D9783126754958&position=9&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.99"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$3.99 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$21.98</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=100668&url=http%3A%2F%2Fwww.jdoqocy.com%2Fclick-536211-10692263%3FURL%3Dhttp%3A%2F%2Fwww.chegg.com%2Fdetails%2F%3Fisbn%3D9783126754958&position=9&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.99" rel="/store_info.pl?cat=book&store_id=10003&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=100668&url=http%253A%252F%252Fwww.jdoqocy.com%252Fclick-536211-10692263%253FURL%253Dhttp%253A%252F%252Fwww.chegg.com%252Fdetails%252F%253Fisbn%253D9783126754958%26position%3D9%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D17.99" title="&nbsp;<b>Chegg</b>" id="store_link_jquery"><b>Chegg</b></a><br><a target=_blank href="/merchant_review.pl?store_id=10003" class="lnk" style="font-size:11px;">
+<img src="/img/shop/30star.gif" alt="3.04" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $3.99  
+        &nbsp;<span class=notes><nobr></nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%3A%2F%2Fwww.shareasale.com%2Fr.cfm%3Fb%3D147404%26u%3D306291%26m%3D15727%26urllink%3Dwww.campusbookrentals.com%2Fproduct.i%253Fasin%253D3126754953%26afftrack%3D_CI_SID_&position=10&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=46.05">
+<img src="/img/shop/en-us/rent.gif" border=0 alt="Rent it"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%3A%2F%2Fwww.shareasale.com%2Fr.cfm%3Fb%3D147404%26u%3D306291%26m%3D15727%26urllink%3Dwww.campusbookrentals.com%2Fproduct.i%253Fasin%253D3126754953%26afftrack%3D_CI_SID_&position=10&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=46.05" class="price_button" title="" >$46.05</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<nobr><div class="condition"><b>Rental</b></div></nobr><font  style="font-size:11px;padding-left:10px;">
+        
+        Semester (130 days)
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+- $5.00<br> <a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=1357&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%253A%252F%252Fwww.shareasale.com%252Fr.cfm%253Fb%253D147404%2526u%253D306291%2526m%253D15727%2526urllink%253Dwww.campusbookrentals.com%252Fproduct.i%25253Fasin%25253D3126754953%2526afftrack%253D_CI_SID_%26position%3D10%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D46.05&couponid=535#535"  title="&nbsp;<b>CampusBookRentals</b>" rel="/coupon.pl?storeid=1357&shipto=us&is_short=1&couponid=535#535"><nobr><span class=notes>show coupon</span></nobr></a><br> <a target=_blank  class="jt" href="/coupon.pl?cat=book&storeid=1357&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%253A%252F%252Fwww.shareasale.com%252Fr.cfm%253Fb%253D147404%2526u%253D306291%2526m%253D15727%2526urllink%253Dwww.campusbookrentals.com%252Fproduct.i%25253Fasin%25253D3126754953%2526afftrack%253D_CI_SID_%26position%3D10%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D46.05&couponid=523#523"  title="&nbsp;<b>CampusBookRentals</b>" rel="/coupon.pl?storeid=1357&shipto=us&is_short=1&couponid=523#523"><nobr><span class=notes>show coupon</span></nobr></a><br></td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%3A%2F%2Fwww.shareasale.com%2Fr.cfm%3Fb%3D147404%26u%3D306291%26m%3D15727%26urllink%3Dwww.campusbookrentals.com%2Fproduct.i%253Fasin%253D3126754953%26afftrack%3D_CI_SID_&position=10&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=46.05"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$0.00 shipping </nobr><br>
+              
+               <nobr>-$5.00 coupon =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$41.05</font>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/img/shop/best_deal.gif" border="0"><br><span class="bestpricelabel" >Best rental</span>             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%3A%2F%2Fwww.shareasale.com%2Fr.cfm%3Fb%3D147404%26u%3D306291%26m%3D15727%26urllink%3Dwww.campusbookrentals.com%2Fproduct.i%253Fasin%253D3126754953%26afftrack%3D_CI_SID_&position=10&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=46.05" rel="/store_info.pl?cat=book&store_id=1357&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=1877&url=http%253A%252F%252Fwww.shareasale.com%252Fr.cfm%253Fb%253D147404%2526u%253D306291%2526m%253D15727%2526urllink%253Dwww.campusbookrentals.com%252Fproduct.i%25253Fasin%25253D3126754953%2526afftrack%253D_CI_SID_%26position%3D10%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D46.05" title="&nbsp;<b>CampusBookRentals</b>" id="store_link_jquery"><b>CampusBookRentals</b></a><br><a target=_blank href="/merchant_review.pl?store_id=1357" class="lnk" style="font-size:11px;">
+<img src="/img/shop/40star.gif" alt="3.80" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        Free  
+        &nbsp;<span class=notes><nobr>Standard: 7-14</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=white onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'white');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=cad&feed_id=173&url=http%3A%2F%2Fwww.amazon.ca%2Fexec%2Fobidos%2Fredirect%3Ftag%3Dcampusicom07-20%26path%3D%2Ftg%2Fdetail%2Foffer-listing%2F-%2F3126754953%2Fused&position=11&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=33.04">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=cad&feed_id=173&url=http%3A%2F%2Fwww.amazon.ca%2Fexec%2Fobidos%2Fredirect%3Ftag%3Dcampusicom07-20%26path%3D%2Ftg%2Fdetail%2Foffer-listing%2F-%2F3126754953%2Fused&position=11&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=33.04" class="price_button" title="" >$33.04</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        1 available
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=cad&feed_id=173&url=http%3A%2F%2Fwww.amazon.ca%2Fexec%2Fobidos%2Fredirect%3Ftag%3Dcampusicom07-20%26path%3D%2Ftg%2Fdetail%2Foffer-listing%2F-%2F3126754953%2Fused&position=11&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=33.04"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$8.20 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$41.24</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=cad&feed_id=173&url=http%3A%2F%2Fwww.amazon.ca%2Fexec%2Fobidos%2Fredirect%3Ftag%3Dcampusicom07-20%26path%3D%2Ftg%2Fdetail%2Foffer-listing%2F-%2F3126754953%2Fused&position=11&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=33.04" rel="/store_info.pl?cat=book&store_id=85&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=cad&feed_id=173&url=http%253A%252F%252Fwww.amazon.ca%252Fexec%252Fobidos%252Fredirect%253Ftag%253Dcampusicom07-20%2526path%253D%252Ftg%252Fdetail%252Foffer-listing%252F-%252F3126754953%252Fused%26position%3D11%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D33.04" title="&nbsp;<b>Amazon Canada Marketplace</b>" id="store_link_jquery"><b>Amazon Canada Marketplace</b></a><br><a target=_blank href="/merchant_review.pl?store_id=85" class="lnk" style="font-size:11px;">
+<img src="/img/shop/40star.gif" alt="4.00" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $8.20  
+        &nbsp;<span class=notes><nobr>Standard: 7-12</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+
+<tr valign=top bgcolor=gainsboro onmouseover="rowFocus(this);" onmouseout="rowLostFocus(this,'gainsboro');">
+        <td class="middleleft">&nbsp;</td>
+
+	<td class="unit"  nowrap>
+          <table border=0 width=100%>
+             <tr>
+                <td align=left>
+          <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=gbp&feed_id=205&url=http%3A%2F%2Fwww.amazon.co.uk%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_uk_book-21%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=12&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=31.12">
+<img src="/img/shop/en-us/buy.gif" border=0 alt="Buy it" border="1"></a>
+                 </td>
+                 <td align=right>
+ 
+         <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=gbp&feed_id=205&url=http%3A%2F%2Fwww.amazon.co.uk%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_uk_book-21%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=12&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=31.12" class="price_button" title="" >$31.12</a>
+
+
+
+                 </td>
+              </tr>
+            </table>
+        </td>
+       	
+        <td class="unit" align=left>
+
+<div class="condition"><b>Used</b> Marketplace</div><font  style="font-size:11px;padding-left:10px;">
+        
+        3 available
+        
+</font>
+        </td>
+ <td class="unit" align=right>&nbsp;
+
+</td>
+	<td class="unit" align=left>
+               <div style="padding-left:15px;">
+               <a target=_blank href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=gbp&feed_id=205&url=http%3A%2F%2Fwww.amazon.co.uk%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_uk_book-21%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=12&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=31.12"  style="font-size:11px;color:#808080;font-family:Arial,Helvetica,sans-serif;text-decoration:none;">
+               
+
+               <nobr>+$11.27 shipping =</nobr><br>
+              
+              
+
+                 
+               <font style="font-size:13px;font-weight:bold;color:#000000;">$42.38</font>&nbsp;&nbsp;&nbsp;&nbsp;             
+               </a>
+                </div>
+        </td>
+	<td class="unit">        
+<a target=_blank class="jt" href="/url.pl?cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=gbp&feed_id=205&url=http%3A%2F%2Fwww.amazon.co.uk%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_uk_book-21%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=12&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=31.12" rel="/store_info.pl?cat=book&store_id=93&shipto=us&cat_id=10&data_id=4969458&sku=3126754953&op=buy&store_cur=gbp&feed_id=205&url=http%253A%252F%252Fwww.amazon.co.uk%252Fexec%252Fobidos%252Fredirect%253Ftag%253Ddealoz_mkt_uk_book-21%2526path%253Dtg%252Fstores%252Foffering%252Flist%252F-%252F3126754953%252Fused%26position%3D12%26sort%3Dfeatured%26result_count%3D12%26store_count%3D12%26price_avg%3D22.1382064166667%26price_low%3D15.00%26price_hi%3D46.05%26price_return%3D31.12" title="&nbsp;<b>Amazon UK Marketplace</b>" id="store_link_jquery"><b>Amazon UK Marketplace</b></a><br><a target=_blank href="/merchant_review.pl?store_id=93" class="lnk" style="font-size:11px;">
+<img src="/img/shop/40star.gif" alt="4.00" border=0>
+</a>
+        </td>
+
+	<td class="endlineunit" align=left>
+
+        $11.27  
+        &nbsp;<span class=notes><nobr>Air mail: 8-20</nobr></span>
+
+        <br>
+      </td>
+      <td class="middleright">&nbsp;</td>
+</tr>
+
+<tr>
+    <td class="bottomleft">&nbsp;</td>
+    <td class="bottommiddle" colspan="6">&nbsp;</td>
+    <td class="bottomright">&nbsp;</td>
+</tr>
+</table>
+
+    
+
+</td>
+<td>
+<td valign="top" width="15%"><table cellspacing=2 cellpadding=0 width=100%  border=0 bgcolor=#E6E6E6>
+<tr><td><nobr/>
+<div id="featured_title" align=center><b>Featured Stores</b></div><div align=center style="background-color:#f6f6f6;" id="feature" onmouseover="style.backgroundColor='#fffcd1';" onmouseout="style.backgroundColor='#f6f6f6';">
+<br>
+<span class="bigprice">
+<a target=_blank href="/url.pl?cat_id=&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" ><img src="/img/shop/en-us/buy_small.gif" border=0 alt="Buy it"></a>
+&nbsp;
+
+<span class="buy"><a href="/url.pl?cat_id=&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="Emil und die Detektive. (Lernmaterialien)" alt="Emil und die Detektive. (Lernmaterialien)">$17.37</a></span></span>&nbsp;
+<b>Used</b>
+
+<br><a href="/url.pl?cat_id=&data_id=4969458&sku=3126754953&op=buy&store_cur=usd&feed_id=165&url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2Fredirect%3Ftag%3Ddealoz_mkt_us_book_UTM_-20%26path%3Dtg%2Fstores%2Foffering%2Flist%2F-%2F3126754953%2Fused&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="Emil und die Detektive. (Lernmaterialien)" alt="Emil und die Detektive. (Lernmaterialien)"><img src="/img/dealoz.com/store_logo/83.gif" border="0" alt="Amazon Marketplace" title="Amazon Marketplace"></a><br><br>
+</div>
+<div style="border-bottom:1px dashed #ccc;"></div><div align=center style="background-color:#f6f6f6;" id="feature" onmouseover="style.backgroundColor='#fffcd1';" onmouseout="style.backgroundColor='#f6f6f6';">
+<br>
+<span class="bigprice">
+<a target=_blank href="/url.pl?cat_id=&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" ><img src="/img/shop/en-us/buy_small.gif" border=0 alt="Buy it"></a>
+&nbsp;
+
+<span class="buy"><a href="/url.pl?cat_id=&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="" alt="">$17.37</a></span></span>&nbsp;
+<b>Used</b>
+
+<br><a href="/url.pl?cat_id=&data_id=4969458&sku=9783126754958&op=buy&store_cur=usd&feed_id=292&url=http%3A%2F%2Fwww.valorebooks.com%2Faffiliate%2Fbuy%2FsiteID%3Dg6m9bU%2FISBN%3D9783126754958%3Futm_medium%3Dreferral%26utm_campaign%3Dcampusi%26utm_source%3Dcampusi%26buy%3D2&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="" alt=""><img src="/img/dealoz.com/store_logo/128.gif" border="0" alt="ValoreBooks" title="ValoreBooks"></a><br><br>
+</div>
+<div style="border-bottom:1px dashed #ccc;"></div><div align=center style="background-color:#f6f6f6;" id="feature" onmouseover="style.backgroundColor='#fffcd1';" onmouseout="style.backgroundColor='#f6f6f6';">
+<br>
+<span class="bigprice">
+<a target=_blank href="/url.pl?cat_id=&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" ><img src="/img/shop/en-us/buy_small.gif" border=0 alt="Buy it"></a>
+&nbsp;
+
+<span class="buy"><a href="/url.pl?cat_id=&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="Emil Und Die Detektive" alt="Emil Und Die Detektive">$17.37</a></span></span>&nbsp;
+<b>Used</b>
+
+<br><a href="/url.pl?cat_id=&data_id=4969458&sku=818501&op=buy&store_cur=usd&feed_id=560&url=http%3A%2F%2Fclickserve.cc-dt.com%2Flink%2Ftplclick%3Flid%3D41000000024827430%26pubid%3D21000000000010538%26redirect%3Dhttp%253A%252F%252Fwww.textbooks.com%252FBooksDescription.php%253FBKN%253D818501%2526SBC%253DK6E&position=&sort=featured&result_count=12&store_count=12&price_avg=22.1382064166667&price_low=15.00&price_hi=46.05&price_return=17.37" target="_blank" title="Emil Und Die Detektive" alt="Emil Und Die Detektive"><img src="/img/dealoz.com/store_logo/314.gif" border="0" alt="Textbooks.com" title="Textbooks.com"></a><br><br>
+</div>
+<div style="border-bottom:1px dashed #ccc;"></div></td></tr>
+</table></td>
+
+
+
+</td></tr>
+
+</table>
+
+<!-- price outline begin -->
+
+<!-- price outline end -->
+
+<!-- class box begin -->
+
+<!-- class box end -->
+
+
+<!-- sub_tabs begin -->
+
+<!-- sub_tabs end -->
+
+
+<!-- price_box begin -->
+
+<!-- price_box end -->
+
+
+<!-- feature begin --><!-- feature end -->
+</body>
+</html>

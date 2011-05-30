@@ -1,0 +1,2 @@
+module DealzHelper
+end

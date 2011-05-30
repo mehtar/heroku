@@ -1,0 +1,17 @@
+<html>
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="refresh" content="1;url=/price.pl?cat=book&data_id=4969458&op=buy&class=all">
+<meta name="robots" content="noindex,nofollow">
+<style>
+    body,td,a,p,h,div,span {font-family:arial,sans-serif; font-size: 13px}
+</style>
+<body>
+<center>
+<span style="color:#333"><table cellspacing=0 cellpadding=0 border=0 height=2000>
+<tr valign=top>
+<td><b>Comparing 10,000+ stores for the lowest prices...</b></td><td><img src="/img/shop/progress.gif">&nbsp;</td>
+</tr>
+</table></span>
+</center>
+</body>
+</html>
