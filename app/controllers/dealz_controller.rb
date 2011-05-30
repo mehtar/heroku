@@ -29,7 +29,8 @@ class DealzController < ApplicationController
     puts "uri="+uri
     puts "=========="
     
-    doc = Nokogiri::HTML(open(uri, :read_timeout=>20))
+   # doc = Nokogiri::HTML(open(uri, :read_timeout=>20))
+    doc = Nokogiri::HTML(open(uri))
     xml = Builder::XmlMarkup.new(:indent=>2)
     xml.instruct!
    # puts doc
